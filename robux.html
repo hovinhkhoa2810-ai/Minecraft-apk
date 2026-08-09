@@ -1,1 +1,138 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Hack Successful</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#00ff66;font-family:monospace;overflow:hidden;height:100vh;display:flex;justify-content:center;align-items:center}#rc{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle,#001100,#000)} .rs{width:100%;height:100%;position:relative;display:flex;justify-content:center;align-items:center}.mr{position:absolute;top:0;left:0;width:100%;height:100%;font-size:16px;line-height:1;white-space:pre;opacity:.8} .sw{position:absolute;width:250px;height:250px;border:2px solid rgba(0,255,102,.4);border-radius:50%;display:flex;justify-content:center;align-items:center}.sw::before{content:'';position:absolute;top:50%;left:50%;width:125px;height:125px;background:linear-gradient(45deg,rgba(0,255,102,.8),transparent 50%);transform-origin:top left;animation:s 2s linear infinite}@keyframes s{100%{transform:rotate(360deg)}}#as{display:none;position:absolute;width:100vw;height:100vh;background:#000;color:#ff0000;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:999;flex-direction:column}.ab{border:4px solid #ff0000;padding:30px;background:rgba(20,0,0,.9);box-shadow:0 0 30px rgba(255,0,0,.8);border-radius:10px;margin-bottom:20px}h1{font-size:2rem;text-shadow:0 0 15px red}.pin-box{margin-top:20px;display:flex;gap:10px;justify-content:center}.pin-input{width:50px;height:50px;font-size:24px;text-align:center;background:#111;color:#00ff66;border:2px solid #00ff66;border-radius:8px;outline:none}.pin-input:focus{border-color:#ff0000;color:#ff0000}#msg{margin-top:15px;color:#ff3333;font-size:14px;font-weight:bold}</style></head><body><div id="rc"><div class="rs"><div class="mr" id="m"></div><div class="sw"></div></div></div><div id="as"><div class="ab"><h1>BẠN ĐÃ BỊ HACK VÀ ĐÃ NHIỄM MÃ ĐỘC</h1></div><div style="color:#00ff66;font-size:1.1rem;margin-bottom:10px;">NHẬP MÃ PIN 4 SỐ ĐỂ KHÔI PHỤC:</div><div class="pin-box"><input type="password" maxlength="1" class="pin-input" id="p0" pattern="[0-9]*" inputmode="numeric"><input type="password" maxlength="1" class="pin-input" id="p1" pattern="[0-9]*" inputmode="numeric"><input type="password" maxlength="1" class="pin-input" id="p2" pattern="[0-9]*" inputmode="numeric"><input type="password" maxlength="1" class="pin-input" id="p3" pattern="[0-9]*" inputmode="numeric"></div><div id="msg"></div></div><script>const c="01ABCDEFGHIJKLMNOPQRSTUVWXYZ",m=document.getElementById("m");function g(){let w=Math.floor(window.innerWidth/18),h=Math.floor(window.innerHeight/18),t="";for(let r=0;r<h;r++){let s="";for(let i=0;i<w;i++)s+=c[Math.floor(Math.random()*c.length)]+" ";t+=s+"\n"}m.innerText=t}let v=setInterval(g,80);let failCount=0,lockUntil=0;setTimeout(()=>{clearInterval(v);document.getElementById("rc").style.display="none";document.getElementById("as").style.display="flex";document.getElementById("p0").focus()},4000);const inputs=document.querySelectorAll(".pin-input");inputs.forEach((inp,idx)=>{inp.addEventListener("input",(e)=>{let val=e.target.value.replace(/[^0-9]/g,"");e.target.value=val;if(val&&idx<3)inputs[idx+1].focus();checkPin();});inp.addEventListener("keydown",(e)=>{if(e.key==="Backspace"&&!e.target.value&&idx>0)inputs[idx-1].focus();});});function checkPin(){let now=Date.now();if(now<lockUntil){let left=Math.ceil((lockUntil-now)/1000);document.getElementById("msg").innerText="SAI QUÁ 4 LẦN! CHỜ "+left+" GIÂY NỮA.";inputs.forEach(i=>i.value="");return;}let pin="";inputs.forEach(i=>pin+=i.value);if(pin.length===4){if(pin==="1234"){window.location.href="https://github.com/hovinhkhoa2810-ai/Minecraft-apk";}else{failCount++;if(failCount>=4){lockUntil=Date.now()+120000;failCount=0;document.getElementById("msg").innerText="SAI QUÁ 4 LẦN! KHÓA 2 PHÚT.";}else{document.getElementById("msg").innerText="MÃ PIN SAI! CÒN "+(4-failCount)+" LẦN THỬ.";}inputs.forEach(i=>i.value="");inputs[0].focus();}}}</script></body></html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Hack Successful</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;color:#00ff66;font-family:monospace;overflow:hidden;height:100vh;display:flex;justify-content:center;align-items:center}
+        
+        /* Màn hình nhận Robux */
+        #robux-screen{position:absolute;top:0;left:0;width:100vw;height:100vh;background:#000;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:1000}
+        h2{font-size:1.8rem;margin-bottom:30px;color:#00ff66;text-shadow:0 0 10px rgba(0,255,102,.5)}
+        .btn{background:#00ff66;color:#000;font-size:1.2rem;font-weight:bold;padding:15px 30px;border:none;border-radius:10px;cursor:pointer;animation:pulse 1s infinite alternate;box-shadow:0 0 20px rgba(0,255,102,.6)}
+        @keyframes pulse{0%{transform:scale(1)}100%{transform:scale(1.15)}}
+
+        /* Giao diện Hack */
+        #rc{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle,#001100,#000)}
+        .rs{width:100%;height:100%;position:relative;display:flex;justify-content:center;align-items:center}
+        .mr{position:absolute;top:0;left:0;width:100%;height:100%;font-size:16px;line-height:1;white-space:pre;opacity:.8}
+        .sw{position:absolute;width:250px;height:250px;border:2px solid rgba(0,255,102,.4);border-radius:50%;display:flex;justify-content:center;align-items:center}
+        .sw::before{content:'';position:absolute;top:50%;left:50%;width:125px;height:125px;background:linear-gradient(45deg,rgba(0,255,102,.8),transparent 50%);transform-origin:top left;animation:s 2s linear infinite}
+        @keyframes s{100%{transform:rotate(360deg)}}
+        #as{display:none;position:absolute;width:100vw;height:100vh;background:#000;color:#ff0000;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:999;flex-direction:column}
+        .ab{border:4px solid #ff0000;padding:30px;background:rgba(20,0,0,.9);box-shadow:0 0 30px rgba(255,0,0,.8);border-radius:10px;margin-bottom:20px}
+        h1{font-size:2rem;text-shadow:0 0 15px red}
+        .pin-box{margin-top:20px;display:flex;gap:10px;justify-content:center}
+        .pin-input{width:50px;height:50px;font-size:24px;text-align:center;background:#111;color:#00ff66;border:2px solid #00ff66;border-radius:8px;outline:none}
+        .pin-input:focus{border-color:#ff0000;color:#ff0000}
+        #msg{margin-top:15px;color:#ff3333;font-size:14px;font-weight:bold}
+    </style>
+</head>
+<body>
+
+    <!-- Màn hình 1: Nhận Robux -->
+    <div id="robux-screen">
+        <h2>BẠN CÓ MUỐN NHẬN 10000 ROBUX KHÔNG?</h2>
+        <button class="btn" onclick="startPrank()">NHẬN 10000 ROBUX</button>
+    </div>
+
+    <!-- Màn hình 2: Radar Hack -->
+    <div id="rc">
+        <div class="rs">
+            <div class="mr" id="m"></div>
+            <div class="sw"></div>
+        </div>
+    </div>
+
+    <!-- Màn hình 3: Nhập Mã Pin -->
+    <div id="as">
+        <div class="ab">
+            <h1>BẠN ĐÃ BỊ HACK VÀ ĐÃ NHIỄM MÃ ĐỘC</h1>
+        </div>
+        <div style="color:#00ff66;font-size:1.1rem;margin-bottom:10px;">NHẬP MÃ PIN 4 SỐ ĐỂ KHÔI PHỤC:</div>
+        <div class="pin-box">
+            <input type="password" maxlength="1" class="pin-input" id="p0" pattern="[0-9]*" inputmode="numeric">
+            <input type="password" maxlength="1" class="pin-input" id="p1" pattern="[0-9]*" inputmode="numeric">
+            <input type="password" maxlength="1" class="pin-input" id="p2" pattern="[0-9]*" inputmode="numeric">
+            <input type="password" maxlength="1" class="pin-input" id="p3" pattern="[0-9]*" inputmode="numeric">
+        </div>
+        <div id="msg"></div>
+    </div>
+
+    <script>
+        history.pushState(null, null, location.href);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, location.href);
+        });
+
+        const c = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ", m = document.getElementById("m");
+        function g() {
+            let w = Math.floor(window.innerWidth / 18), h = Math.floor(window.innerHeight / 18), t = "";
+            for (let r = 0; r < h; r++) {
+                let s = "";
+                for (let i = 0; i < w; i++) s += c[Math.floor(Math.random() * c.length)] + " ";
+                t += s + "\n";
+            }
+            m.innerText = t;
+        }
+
+        let v, failCount = 0, lockUntil = 0;
+
+        function startPrank() {
+            document.getElementById("robux-screen").style.display = "none";
+            document.getElementById("rc").style.display = "flex";
+            v = setInterval(g, 80);
+
+            setTimeout(() => {
+                clearInterval(v);
+                document.getElementById("rc").style.display = "none";
+                document.getElementById("as").style.display = "flex";
+                document.getElementById("p0").focus();
+            }, 4000);
+        }
+
+        const inputs = document.querySelectorAll(".pin-input");
+        inputs.forEach((inp, idx) => {
+            inp.addEventListener("input", (e) => {
+                let val = e.target.value.replace(/[^0-9]/g, "");
+                e.target.value = val;
+                if (val && idx < 3) inputs[idx + 1].focus();
+                checkPin();
+            });
+            inp.addEventListener("keydown", (e) => {
+                if (e.key === "Backspace" && !e.target.value && idx > 0) inputs[idx - 1].focus();
+            });
+        });
+
+        function checkPin() {
+            let now = Date.now();
+            if (now < lockUntil) {
+                let left = Math.ceil((lockUntil - now) / 1000);
+                document.getElementById("msg").innerText = "SAI QUÁ 4 LẦN! CHỜ " + left + " GIÂY NỮA.";
+                inputs.forEach(i => i.value = "");
+                return;
+            }
+            let pin = "";
+            inputs.forEach(i => pin += i.value);
+            if (pin.length === 4) {
+                if (pin === "1234") {
+                    window.location.href = "https://github.com/hovinhkhoa2810-ai/Minecraft-apk";[span_0](start_span)[span_0](end_span)
+                } else {
+                    failCount++;
+                    if (failCount >= 4) {
+                        lockUntil = Date.now() + 120000;
+                        failCount = 0;
+                        document.getElementById("msg").innerText = "SAI QUÁ 4 LẦN! KHÓA 2 PHÚT.";
+                    } else {
+                        document.getElementById("msg").innerText = "MÃ PIN SAI! CÒN " + (4 - failCount) + " LẦN THỬ.";
+                    }
+                    inputs.forEach(i => i.value = "");
+                    inputs[0].focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
